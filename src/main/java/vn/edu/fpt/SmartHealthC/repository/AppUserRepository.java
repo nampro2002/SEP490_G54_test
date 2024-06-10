@@ -14,11 +14,12 @@ import java.util.Optional;
 @Repository
 public interface AppUserRepository extends JpaRepository<AppUser, Integer> {
     //name contain search
-    @Query("SELECT u FROM AppUser u WHERE LOWER(u.name) LIKE %?1%")
-    Page<AppUser> findAll(Pageable pageable, String search);
+    @Query("SELECT u FROM AppUser u WHERE u.webUser.id = ?1 AND LOWER(u.name) LIKE %?2%")
+    Page<AppUser> findAllByUserId(Integer id, String search, Pageable pageable);
 
     @Query("SELECT u FROM AppUser u WHERE u.accountId.isActive = false AND u.accountId.type = ?1")
     Page<AppUser> findAllInactiveAccountUser(TypeAccount type, Pageable paging);
     @Query("SELECT u FROM AppUser u WHERE u.accountId.isActive = true AND u.accountId.type = ?1 AND u.webUser.accountId.isDeleted = true")
     Page<AppUser> findAllAccountUserNotAssign(TypeAccount type, Pageable paging);
+
 }

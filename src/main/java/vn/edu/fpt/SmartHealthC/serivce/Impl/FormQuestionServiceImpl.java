@@ -75,7 +75,7 @@ public class FormQuestionServiceImpl implements FormQuestionService {
     @Override
     public ResponsePaging<List<FormQuestionResponseDTO>> getAllFormQuestions(Integer pageNo, String search) {
         Pageable paging = PageRequest.of(pageNo, 5, Sort.by("id"));
-        Page<FormQuestion> pagedResult  = formQuestionRepository.findAll(paging);
+        Page<FormQuestion> pagedResult  = formQuestionRepository.findAll(paging, search);
         List<FormQuestion> formQuestions = new ArrayList<>();
         if (pagedResult.hasContent()) {
             formQuestions = pagedResult.getContent();
@@ -91,7 +91,6 @@ public class FormQuestionServiceImpl implements FormQuestionService {
                     .build();
             formQuestionResponseDTOS.add(formQuestionResponseDTO);
         }
-        formQuestionResponseDTOS =  formQuestionResponseDTOS.stream().filter(record -> record.getQuestion().toLowerCase().contains(search.toLowerCase())).toList();
         return ResponsePaging.<List<FormQuestionResponseDTO>>builder()
                 .totalPages(pagedResult.getTotalPages())
                 .currentPage(pageNo + 1)
@@ -129,5 +128,22 @@ public class FormQuestionServiceImpl implements FormQuestionService {
                 .type(formQuestion.getType())
                 .build();
         return formQuestionResponseDTO;
+    }
+
+    @Override
+    public List<FormQuestionResponseDTO> getAllFormQuestionsMobile() {
+        List<FormQuestion> formQuestions   = formQuestionRepository.findAll();
+        List<FormQuestionResponseDTO> formQuestionResponseDTOS = new ArrayList<>();
+        for (FormQuestion formQuestion : formQuestions) {
+            FormQuestionResponseDTO formQuestionResponseDTO = FormQuestionResponseDTO
+                    .builder()
+                    .id(formQuestion.getId())
+                    .question(formQuestion.getQuestion())
+                    .questionNumber(formQuestion.getQuestionNumber())
+                    .type(formQuestion.getType())
+                    .build();
+            formQuestionResponseDTOS.add(formQuestionResponseDTO);
+        }
+        return formQuestionResponseDTOS;
     }
 }

@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import vn.edu.fpt.SmartHealthC.domain.Enum.TypeMedicalAppointment;
 
 import java.util.Date;
 
@@ -13,15 +12,20 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class MedicalAppointmentDTO {
+public class AppUserRequestDTO {
 
-    private int appUserId;
+    private String name;
 
-    private String location;
+    private String cic;
 
-    private TypeMedicalAppointment type;
+    private Date dob;
 
-    private Date date;
+    private boolean gender;
 
+    private Float height;
+
+    private Float weight;
+
+    private String  phoneNumber;
 
 }

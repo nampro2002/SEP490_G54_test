@@ -41,12 +41,29 @@ public class MedicalAppointmentController {
                         .build()).getBody();
     }
 
-    @GetMapping
-    public ApiResponse<ResponsePaging<List<MedicalAppointmentResponseDTO>>> getAllMedicalAppointments(@RequestParam(defaultValue = "1") Integer pageNo, @RequestParam(defaultValue = "") String search) {
+    @GetMapping("/mobile/{id}")
+    public ApiResponse<List<MedicalAppointmentResponseDTO>> getMedicalAppointmentByUserIdMobile(@PathVariable Integer id) {
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(ApiResponse.<List<MedicalAppointmentResponseDTO>>builder()
+                        .code(HttpStatus.OK.value())
+                        .result(medicalAppointmentService.getMedicalAppointmentByUserIdMobile(id))
+                        .build()).getBody();
+    }
+    @GetMapping("/web/{id}")
+    public ApiResponse<ResponsePaging<List<MedicalAppointmentResponseDTO>>> getMedicalAppointmentByUserId(@PathVariable Integer id, @RequestParam(defaultValue = "1") Integer pageNo) {
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(ApiResponse.<ResponsePaging<List<MedicalAppointmentResponseDTO>>>builder()
+                        .code(HttpStatus.OK.value())
+                        .result(medicalAppointmentService.getMedicalAppointmentByUserId(id, pageNo))
+                        .build()).getBody();
+    }
+
+    @GetMapping("/{id}")
+    public ApiResponse<ResponsePaging<List<MedicalAppointmentResponseDTO>>> getAllMedicalAppointments(@PathVariable Integer id, @RequestParam(defaultValue = "1") Integer pageNo, @RequestParam(defaultValue = "") String search) {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(ApiResponse.<ResponsePaging<List<MedicalAppointmentResponseDTO>>  >builder()
                         .code(HttpStatus.OK.value())
-                        .result(medicalAppointmentService.getAllMedicalAppointments(pageNo - 1, search))
+                        .result(medicalAppointmentService.getAllMedicalAppointments(id, pageNo - 1, search))
                         .build()).getBody();
     }
 
