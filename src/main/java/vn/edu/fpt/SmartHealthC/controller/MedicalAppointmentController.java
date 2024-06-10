@@ -32,7 +32,7 @@ public class MedicalAppointmentController {
                         .build()).getBody();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("findById/{id}")
     public ApiResponse<MedicalAppointmentResponseDTO> getMedicalAppointmentById(@PathVariable Integer id) {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(ApiResponse.<MedicalAppointmentResponseDTO>builder()
