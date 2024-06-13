@@ -31,6 +31,7 @@ CREATE TABLE `account` (
                            `type` enum('ADMIN','CUSTOMER_SUPPORT','MEDICAL_SPECIALIST','USER') NOT NULL,
                            PRIMARY KEY (`id`),
                            UNIQUE KEY `UK_q0uja26qgu1atulenwup9rxyr` (`email`)
+--                            UNIQUE KEY `email_UNIQUE` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -40,7 +41,7 @@ CREATE TABLE `account` (
 
 LOCK TABLES `account` WRITE;
 /*!40000 ALTER TABLE `account` DISABLE KEYS */;
-INSERT INTO `account` VALUES (1,'nam2@example.com',_binary '',_binary '','$2a$10$hqzcqTj9JvOhMXxZaNHfFu.AjyxOWTfVqLity35wSerYYrotx5e2.','ADMIN'),(2,'nam1@example.com',_binary '',_binary '\0','$2a$10$VxP4das/0ncnmrbGlnNiuOwWeoCKkBpKh3UcxtyNXrta1rXZApsbe','ADMIN'),(3,'nam3@example.com',_binary '',_binary '\0','$2a$10$Lsbdks04D5.AtGVrdf8iNOt84wCYxTYCL3hmJYCKowuOQfqiRMBjm','ADMIN'),(4,'user1@gmail.com',_binary '\0',_binary '\0','$2a$10$URZD3Nj/x55TTH3SOgPMWeSjvX/cEnYl4.w69ze8F46Bzwk65QnEy','USER'),(5,'user2@gmail.com',_binary '',_binary '\0','$2a$10$b/.uJ38ZoxQdPV2cWasMleiHYaMakdG5pPHjhDuIwi3XG64iPt7iq','USER'),(6,'user3@gmail.com',_binary '',_binary '\0','$2a$10$/bc4MfW68AdDedKVhbw8P.tW6vr3z6P44lzG38CNiEL4TyQMRDKiq','USER'),(7,'nam123@gmail.com',_binary '',_binary '\0','$2a$10$xQBMSCAcA1vCkvE5rp4MXuqLgzitEFk9G3mp9/JiJKSpfYXB58Q8K','USER'),(8,'nam124@gmail.com',_binary '',_binary '\0','$2a$10$FDN6j5uDSIhLZ6HEcC2.7OUBSVsJ8NcnayaY2Z6NyfpcpAa82rmXi','USER'),(9,'nam125@gmail.com',_binary '',_binary '\0','$2a$10$Xz0URXaZyraylLiLYUBb4.TuHt35NNi00e2OcDPz63rA3PqKtqMP2','USER'),(10,'nam126@gmail.com',_binary '',_binary '\0','$2a$10$LcVVpjP33Dp9XUv9yD8xwe3eDW7c4lX4XbpT58wqh2xk9jvzpAkm6','USER'),(11,'nam127@gmail.com',_binary '\0',_binary '\0','$2a$10$6LmG.yELpjG4VwHOpNGS0uoBbVwqdvV5n7.HwfiJ8h7Nu6nPWQR2m','USER'),(12,'nam128@gmail.com',_binary '\0',_binary '\0','$2a$10$dSHxbgOQndY6vcdzoiqLtOBco/4L99zDhFaaQn0KQCMqul/1rA9LK','USER'),(13,'nam129@gmail.com',_binary '\0',_binary '','$2a$10$.v1vHDtZ6959monnMzQ0wOrP1BqwvrHSbuO4YoqPzpeYsEymwbzGa','USER'),(14,'nam139@gmail.com',_binary '\0',_binary '','$2a$10$lLYs3xadQaJD28P8jEOf/u1PNu9iZ1c1rvd2dFc2dTeqbLX8mRSNy','USER'),(15,'nam132@gmail.com',_binary '\0',_binary '','$2a$10$zjNqxA.ZfGG7JHcgwyms9u/Z0SLWSOfg9JCLrSlQ2c6tZTX14U9ty','USER'),(16,'nam4@example.com',_binary '',_binary '\0','$2a$10$DBjZz2HN47Bp7387/ltdqeQek4PLLsAefHx2D3US4tJuIz3vmmI8a','ADMIN'),(17,'staffmedical@example.com',_binary '',_binary '\0','$2a$10$9So4ioxgyCi2NtQIMA8IOOqPdZzayajEFo41iB6nuMgxDblGCycuu','MEDICAL_SPECIALIST'),(18,'quang@gmail.com',_binary '\0',_binary '\0','$2a$10$48vhfcw7h0.YgizuV6isieNe7MVR4xm5cFTWFGoa6a9/wK9X/yhMW','USER');
+INSERT INTO `account` VALUES (1,'nam2@example.com',_binary '',_binary '\0','$2a$10$VxP4das/0ncnmrbGlnNiuOwWeoCKkBpKh3UcxtyNXrta1rXZApsbe','ADMIN'),(2,'nam1@example.com',_binary '',_binary '\0','$2a$10$VxP4das/0ncnmrbGlnNiuOwWeoCKkBpKh3UcxtyNXrta1rXZApsbe','ADMIN'),(3,'nam3@example.com',_binary '',_binary '\0','$2a$10$Lsbdks04D5.AtGVrdf8iNOt84wCYxTYCL3hmJYCKowuOQfqiRMBjm','ADMIN'),(4,'user1@gmail.com',_binary '\0',_binary '\0','$2a$10$URZD3Nj/x55TTH3SOgPMWeSjvX/cEnYl4.w69ze8F46Bzwk65QnEy','USER'),(5,'user2@gmail.com',_binary '',_binary '\0','$2a$10$b/.uJ38ZoxQdPV2cWasMleiHYaMakdG5pPHjhDuIwi3XG64iPt7iq','USER'),(6,'user3@gmail.com',_binary '',_binary '\0','$2a$10$/bc4MfW68AdDedKVhbw8P.tW6vr3z6P44lzG38CNiEL4TyQMRDKiq','USER'),(7,'nam123@gmail.com',_binary '',_binary '\0','$2a$10$xQBMSCAcA1vCkvE5rp4MXuqLgzitEFk9G3mp9/JiJKSpfYXB58Q8K','USER'),(8,'nam124@gmail.com',_binary '',_binary '\0','$2a$10$FDN6j5uDSIhLZ6HEcC2.7OUBSVsJ8NcnayaY2Z6NyfpcpAa82rmXi','USER'),(9,'nam125@gmail.com',_binary '',_binary '\0','$2a$10$Xz0URXaZyraylLiLYUBb4.TuHt35NNi00e2OcDPz63rA3PqKtqMP2','USER'),(10,'nam126@gmail.com',_binary '',_binary '\0','$2a$10$LcVVpjP33Dp9XUv9yD8xwe3eDW7c4lX4XbpT58wqh2xk9jvzpAkm6','USER'),(11,'nam127@gmail.com',_binary '\0',_binary '\0','$2a$10$6LmG.yELpjG4VwHOpNGS0uoBbVwqdvV5n7.HwfiJ8h7Nu6nPWQR2m','USER'),(12,'nam128@gmail.com',_binary '\0',_binary '\0','$2a$10$dSHxbgOQndY6vcdzoiqLtOBco/4L99zDhFaaQn0KQCMqul/1rA9LK','USER'),(13,'nam129@gmail.com',_binary '\0',_binary '','$2a$10$.v1vHDtZ6959monnMzQ0wOrP1BqwvrHSbuO4YoqPzpeYsEymwbzGa','USER'),(14,'nam139@gmail.com',_binary '\0',_binary '','$2a$10$lLYs3xadQaJD28P8jEOf/u1PNu9iZ1c1rvd2dFc2dTeqbLX8mRSNy','USER'),(15,'nam132@gmail.com',_binary '\0',_binary '','$2a$10$zjNqxA.ZfGG7JHcgwyms9u/Z0SLWSOfg9JCLrSlQ2c6tZTX14U9ty','USER'),(16,'nam4@example.com',_binary '',_binary '\0','$2a$10$DBjZz2HN47Bp7387/ltdqeQek4PLLsAefHx2D3US4tJuIz3vmmI8a','ADMIN'),(17,'staffmedical@example.com',_binary '',_binary '\0','$2a$10$9So4ioxgyCi2NtQIMA8IOOqPdZzayajEFo41iB6nuMgxDblGCycuu','MEDICAL_SPECIALIST'),(18,'quang@gmail.com',_binary '\0',_binary '\0','$2a$10$48vhfcw7h0.YgizuV6isieNe7MVR4xm5cFTWFGoa6a9/wK9X/yhMW','USER');
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -63,7 +64,7 @@ CREATE TABLE `activity_record` (
                                    PRIMARY KEY (`id`),
                                    KEY `FKcokpi2p2wcoucs4gi3ve5r7jc` (`appuser_id`),
                                    CONSTRAINT `FKcokpi2p2wcoucs4gi3ve5r7jc` FOREIGN KEY (`appuser_id`) REFERENCES `app_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -72,7 +73,7 @@ CREATE TABLE `activity_record` (
 
 LOCK TABLES `activity_record` WRITE;
 /*!40000 ALTER TABLE `activity_record` DISABLE KEYS */;
-INSERT INTO `activity_record` VALUES (1,'2024-05-20 14:30:00.000000','2024-05-20 07:00:00.000000',1,75,'HEAVY',75,'HEAVY'),(2,'2024-05-21 14:30:00.000000','2024-05-20 07:00:00.000000',1,45,'MEDIUM',65,'MEDIUM'),(3,'2024-05-22 14:30:00.000000','2024-05-20 07:00:00.000000',1,45,'MEDIUM',45,'MEDIUM'),(4,'2024-05-23 14:30:00.000000','2024-05-20 07:00:00.000000',1,40,'LIGHT',35,'LIGHT'),(5,'2024-05-24 14:30:00.000000','2024-05-20 07:00:00.000000',1,50,'LIGHT',40,'HEAVY'),(6,'2024-05-25 14:30:00.000000','2024-05-20 07:00:00.000000',1,35,'LIGHT',45,'MEDIUM'),(7,'2024-05-26 14:30:00.000000','2024-05-20 07:00:00.000000',1,40,'MEDIUM',45,'LIGHT'),(8,'2024-05-27 07:00:00.000000','2024-05-27 07:00:00.000000',1,30,'MEDIUM',45,'LIGHT'),(9,'2024-05-28 07:00:00.000000','2024-05-27 07:00:00.000000',1,35,'LIGHT',60,'MEDIUM'),(10,'2024-05-29 07:00:00.000000','2024-05-27 07:00:00.000000',1,45,'LIGHT',50,'LIGHT'),(11,'2024-05-30 07:00:00.000000','2024-05-27 07:00:00.000000',1,0,NULL,55,'LIGHT');
+INSERT INTO `activity_record` VALUES (1,'2024-05-20 14:30:00.000000','2024-05-20 07:00:00.000000',1,75,'HEAVY',75,'HEAVY'),(2,'2024-05-21 14:30:00.000000','2024-05-20 07:00:00.000000',1,45,'MEDIUM',65,'MEDIUM'),(3,'2024-05-22 14:30:00.000000','2024-05-20 07:00:00.000000',1,45,'MEDIUM',45,'MEDIUM'),(4,'2024-05-23 14:30:00.000000','2024-05-20 07:00:00.000000',1,40,'LIGHT',35,'LIGHT'),(5,'2024-05-24 14:30:00.000000','2024-05-20 07:00:00.000000',1,50,'LIGHT',40,'HEAVY'),(6,'2024-05-25 14:30:00.000000','2024-05-20 07:00:00.000000',1,35,'LIGHT',45,'MEDIUM'),(7,'2024-05-26 14:30:00.000000','2024-05-20 07:00:00.000000',1,40,'MEDIUM',45,'LIGHT'),(8,'2024-05-27 07:00:00.000000','2024-05-27 07:00:00.000000',1,30,'MEDIUM',45,'LIGHT'),(9,'2024-05-28 07:00:00.000000','2024-05-27 07:00:00.000000',1,35,'LIGHT',60,'MEDIUM'),(10,'2024-05-29 07:00:00.000000','2024-05-27 07:00:00.000000',1,45,'LIGHT',50,'LIGHT'),(11,'2024-05-30 07:00:00.000000','2024-05-27 07:00:00.000000',1,0,NULL,55,'LIGHT'),(12,'2024-06-11 02:57:55.000000','2024-06-11 02:58:00.000000',1,NULL,NULL,1,'LIGHT');
 /*!40000 ALTER TABLE `activity_record` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -85,7 +86,7 @@ DROP TABLE IF EXISTS `app_user`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `app_user` (
                             `id` int NOT NULL AUTO_INCREMENT,
-                            `dob` datetime(6) DEFAULT NULL,
+                            `dob` datetime(6) NOT NULL,
                             `gender` bit(1) NOT NULL,
                             `height` float NOT NULL,
                             `medical_specialist_note` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
@@ -258,7 +259,7 @@ CREATE TABLE `flyway_schema_history` (
 
 LOCK TABLES `flyway_schema_history` WRITE;
 /*!40000 ALTER TABLE `flyway_schema_history` DISABLE KEYS */;
-INSERT INTO `flyway_schema_history` VALUES (1,'0','Initial setup','SQL','V0__Initial_setup.sql',-299045294,'root','2024-06-04 05:35:08',9,1),(2,'1','alter some tables','SQL','V1__alter_some_tables.sql',-673246168,'root','2024-06-04 05:35:08',124,1),(3,'2','drop some tables','SQL','V2__drop_some_tables.sql',1881438341,'root','2024-06-04 09:00:04',112,1),(4,'3','alter field mental record','SQL','V3__alter_field_mental_record.sql',-1490067734,'root','2024-06-04 09:00:04',41,1),(5,'4','drop field tables','SQL','V4__drop_field_tables.sql',-1125047809,'root','2024-06-05 14:16:56',404,1),(6,'5','alter table lesson add column lesson number','SQL','V5__alter_table_lesson_add_column_lesson_number.sql',-673908755,'root','2024-06-06 07:32:39',114,1),(7,'6','alter table monthly record and medicine record','SQL','V6__alter_table_monthly_record_and_medicine_record.sql',661377110,'root','2024-06-10 12:27:09',5,1),(8,'7','alter all tables','SQL','V7__alter_all_tables.sql',155961595,'root','2024-06-10 12:31:39',450,1);
+INSERT INTO `flyway_schema_history` VALUES (1,'0','Initial setup','SQL','V0__Initial_setup.sql',-1544244090,'root','2024-06-12 04:49:53',1941,1);
 /*!40000 ALTER TABLE `flyway_schema_history` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -357,6 +358,7 @@ CREATE TABLE `medical_appointment` (
                                        `status_medical_appointment` enum('CONFIRM','DONE','PENDING') NOT NULL,
                                        `type_medical_appointment` enum('DIAGNOSIS','MEDICAL_CHECKUP') NOT NULL,
                                        `appuser_id` int NOT NULL,
+                                       `note` text NOT NULL,
                                        PRIMARY KEY (`id`),
                                        KEY `FK69h8dnll1rty4bswhf21xb1mu` (`appuser_id`),
                                        CONSTRAINT `FK69h8dnll1rty4bswhf21xb1mu` FOREIGN KEY (`appuser_id`) REFERENCES `app_user` (`id`)
@@ -369,7 +371,7 @@ CREATE TABLE `medical_appointment` (
 
 LOCK TABLES `medical_appointment` WRITE;
 /*!40000 ALTER TABLE `medical_appointment` DISABLE KEYS */;
-INSERT INTO `medical_appointment` VALUES (1,'2024-05-28 19:34:56.789000','Hanoi','PENDING','DIAGNOSIS',1),(2,'2024-05-02 18:30:00.000000','Location A','CONFIRM','DIAGNOSIS',1),(3,'2024-05-02 18:30:00.000000','Location A','PENDING','DIAGNOSIS',2),(4,'2024-05-02 18:30:00.000000','Location A','CONFIRM','DIAGNOSIS',1),(5,'2024-05-02 18:30:00.000000','Location C','PENDING','DIAGNOSIS',4),(6,'2024-05-02 18:30:00.000000','Location D','PENDING','MEDICAL_CHECKUP',1),(7,'2024-05-02 18:30:00.000000','Location E','PENDING','MEDICAL_CHECKUP',2),(8,'2024-05-02 18:30:00.000000','Location Z','PENDING','MEDICAL_CHECKUP',3),(9,'2024-05-02 18:30:00.000000','Location N','PENDING','MEDICAL_CHECKUP',4),(10,'2024-05-02 18:30:00.000000','Location N','PENDING','MEDICAL_CHECKUP',5),(11,'2024-05-02 18:30:00.000000','Location M','PENDING','MEDICAL_CHECKUP',6),(12,'2024-05-02 18:30:00.000000','LocationZ','PENDING','MEDICAL_CHECKUP',6),(13,'2024-05-02 18:30:00.000000','LocationD','PENDING','MEDICAL_CHECKUP',6),(14,'2024-05-02 18:30:00.000000','Location G','PENDING','DIAGNOSIS',4),(15,'2024-05-02 18:30:00.000000','Location S','PENDING','DIAGNOSIS',4),(16,'2024-05-02 18:30:00.000000','Location J','PENDING','DIAGNOSIS',4),(17,'2024-05-02 18:30:00.000000','Location M','PENDING','DIAGNOSIS',4);
+INSERT INTO `medical_appointment` VALUES (1,'2024-05-28 19:34:56.789000','Hanoi','PENDING','DIAGNOSIS',1,'abcdef'),(2,'2024-05-02 18:30:00.000000','Location A','CONFIRM','DIAGNOSIS',1,'abcdef'),(3,'2024-05-02 18:30:00.000000','Location A','PENDING','DIAGNOSIS',2,'abcdef'),(4,'2024-05-02 18:30:00.000000','Location A','CONFIRM','DIAGNOSIS',1,'abcdef'),(5,'2024-05-02 18:30:00.000000','Location C','PENDING','DIAGNOSIS',4,'abcdef'),(6,'2024-05-02 18:30:00.000000','Location D','PENDING','MEDICAL_CHECKUP',1,'abcdef'),(7,'2024-05-02 18:30:00.000000','Location E','PENDING','MEDICAL_CHECKUP',2,'abcdef'),(8,'2024-05-02 18:30:00.000000','Location Z','PENDING','MEDICAL_CHECKUP',3,'abcdef'),(9,'2024-05-02 18:30:00.000000','Location N','PENDING','MEDICAL_CHECKUP',4,'abcdef'),(10,'2024-05-02 18:30:00.000000','Location N','PENDING','MEDICAL_CHECKUP',5,'abcdef'),(11,'2024-05-02 18:30:00.000000','Location M','PENDING','MEDICAL_CHECKUP',6,'abcdef'),(12,'2024-05-02 18:30:00.000000','LocationZ','PENDING','MEDICAL_CHECKUP',6,'abcdef'),(13,'2024-05-02 18:30:00.000000','LocationD','PENDING','MEDICAL_CHECKUP',6,'abcdef'),(14,'2024-05-02 18:30:00.000000','Location G','PENDING','DIAGNOSIS',4,'abcdef'),(15,'2024-05-02 18:30:00.000000','Location S','PENDING','DIAGNOSIS',4,'abcdef'),(16,'2024-05-02 18:30:00.000000','Location J','PENDING','DIAGNOSIS',4,'abcdef'),(17,'2024-05-02 18:30:00.000000','Location M','PENDING','DIAGNOSIS',4,'abcdef');
 /*!40000 ALTER TABLE `medical_appointment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -409,10 +411,10 @@ DROP TABLE IF EXISTS `medicine_record`;
 CREATE TABLE `medicine_record` (
                                    `id` int NOT NULL AUTO_INCREMENT,
                                    `date` datetime(6) NOT NULL,
-                                   `status` bit(1) DEFAULT NULL,
+                                   `status` bit(1) NOT NULL,
                                    `week_start` datetime(6) NOT NULL,
                                    `appuser_id` int NOT NULL,
-                                   `medicine_type_id` int DEFAULT NULL,
+                                   `medicine_type_id` int NOT NULL,
                                    PRIMARY KEY (`id`),
                                    KEY `FKebvs97hc30u0vkfbqbc1pcr88` (`appuser_id`),
                                    KEY `FKehxi7o1b90qsrnkschp6f3rm6` (`medicine_type_id`),
@@ -441,7 +443,7 @@ DROP TABLE IF EXISTS `medicine_type`;
 CREATE TABLE `medicine_type` (
                                  `id` int NOT NULL AUTO_INCREMENT,
                                  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-                                 `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+                                 `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
                                  `is_deleted` bit(1) NOT NULL,
                                  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -470,7 +472,7 @@ CREATE TABLE `mental_record` (
                                  `week_start` datetime(6) NOT NULL,
                                  `appuser_id` int NOT NULL,
                                  `mental_rule_id` int NOT NULL,
-                                 `status` bit(1) DEFAULT NULL,
+                                 `status` bit(1) NOT NULL,
                                  PRIMARY KEY (`id`),
                                  KEY `FKhdjaqfcol4ndj2el5gcfj9u8` (`appuser_id`),
                                  KEY `FK7ch3br3em2r1rmkxk60j594dx` (`mental_rule_id`),
@@ -499,7 +501,7 @@ DROP TABLE IF EXISTS `mental_rule`;
 CREATE TABLE `mental_rule` (
                                `id` int NOT NULL AUTO_INCREMENT,
                                `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-                               `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+                               `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
                                `is_deleted` bit(1) NOT NULL,
                                PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -567,7 +569,7 @@ CREATE TABLE `question` (
                             KEY `FK8wk86m3lwpbonn91355qmymjx` (`webuser_id`),
                             CONSTRAINT `FK8jju1d5enwfvxbfi3veg5rcak` FOREIGN KEY (`appuser_id`) REFERENCES `app_user` (`id`),
                             CONSTRAINT `FK8wk86m3lwpbonn91355qmymjx` FOREIGN KEY (`webuser_id`) REFERENCES `web_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -576,8 +578,37 @@ CREATE TABLE `question` (
 
 LOCK TABLES `question` WRITE;
 /*!40000 ALTER TABLE `question` DISABLE KEYS */;
-INSERT INTO `question` VALUES (1,'This is the answer vip pro 2','How do I assign a Microsoft license to a user?','2024-05-02 18:30:00.000000','Microsoft Assignment Query','ASSIGN_MS',1,1,'2024-05-07 18:30:00.000000'),(2,'This is the answer vip pro 2','How do I assign a Microsoft license to a user?','2024-05-02 18:30:00.000000','Microsoft Assignment Query','ASSIGN_ADMIN',1,1,'2024-05-07 18:30:00.000000'),(3,'This is the answer vip pro 2','How do I assign a Microsoft license to a user?','2024-05-02 18:30:00.000000','siuuuuuuu123','ASSIGN_ADMIN',2,1,'2024-05-07 18:30:00.000000'),(4,'','How do I assign a Microsoft license to a user?','2024-05-02 18:30:00.000000','siuuuuuuu123123','ASSIGN_ADMIN',2,NULL,'2024-05-02 18:30:00.000000'),(5,'tra loi cau hoi','How do I assign a Microsoft license to a user?','2024-05-02 18:30:00.000000','siuuuuuuu123123','ASSIGN_ADMIN',2,1,'2024-06-02 16:23:25.519000');
+INSERT INTO `question` VALUES (1,'This is the answer vip pro 2','How do I assign a Microsoft license to a user?','2024-05-02 18:30:00.000000','Microsoft Assignment Query','ASSIGN_MS',1,1,'2024-05-07 18:30:00.000000'),(2,'This is the answer vip pro 2','How do I assign a Microsoft license to a user?','2024-05-02 18:30:00.000000','Microsoft Assignment Query','ASSIGN_ADMIN',1,1,'2024-05-07 18:30:00.000000'),(3,'This is the answer vip pro 2','How do I assign a Microsoft license to a user?','2024-05-02 18:30:00.000000','siuuuuuuu123','ASSIGN_ADMIN',2,1,'2024-05-07 18:30:00.000000'),(4,'','How do I assign a Microsoft license to a user?','2024-05-02 18:30:00.000000','siuuuuuuu123123','ASSIGN_ADMIN',2,NULL,'2024-05-02 18:30:00.000000'),(5,'tra loi cau hoi','How do I assign a Microsoft license to a user?','2024-05-02 18:30:00.000000','siuuuuuuu123123','ASSIGN_ADMIN',2,1,'2024-06-02 16:23:25.519000'),(8,'','How do I assign a Microsoft license to a user?','2024-06-11 02:57:14.885000','sssssss','ASSIGN_ADMIN',2,NULL,NULL);
 /*!40000 ALTER TABLE `question` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `refresh_token`
+--
+
+DROP TABLE IF EXISTS `refresh_token`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `refresh_token` (
+                                 `id` int NOT NULL AUTO_INCREMENT,
+                                 `access_token` varchar(255) NOT NULL,
+                                 `access_expiry_time` datetime(6) NOT NULL,
+                                 `account_id` int NOT NULL,
+                                 `refresh_token` varchar(45) NOT NULL,
+                                 `refresh_expiry_time` datetime(6) NOT NULL,
+                                 PRIMARY KEY (`id`),
+                                 KEY `FKiox3wo9jixvp9boxfheq7l99w` (`account_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+--
+-- Dumping data for table `refresh_token`
+--
+
+LOCK TABLES `refresh_token` WRITE;
+/*!40000 ALTER TABLE `refresh_token` DISABLE KEYS */;
+/*!40000 ALTER TABLE `refresh_token` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -870,4 +901,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-10 19:39:13
+-- Dump completed on 2024-06-12 12:19:18
