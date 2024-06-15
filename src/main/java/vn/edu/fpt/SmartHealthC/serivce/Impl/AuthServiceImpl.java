@@ -70,12 +70,9 @@ public class AuthServiceImpl implements AuthService {
         var jwt = jwtProvider.generateToken(extraClaims, optionalUser.get());
         //RefreshToken
         String refreshToken = UUID.randomUUID().toString();
-        if(checkRefreshTokenDuplicate(refreshToken) == true){
-            refreshToken = UUID.randomUUID().toString();
-        }
         // Lấy thời gian hiện tại
         LocalDateTime now = LocalDateTime.now();
-        LocalDateTime expiresTime = now.plusMinutes(5);
+        LocalDateTime expiresTime = now.plusMinutes(10);
         SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String stringFormatedDate = expiresTime.format(formatter);
@@ -180,7 +177,7 @@ public class AuthServiceImpl implements AuthService {
             throw new AppException(ErrorCode.UNAUTHENTICATED);
         }
         refreshTokenHeader = authHeader.substring(7);
-        if(refreshTokenHeader != refreshTokenFilter.get().getAccessToken()){
+        if(!refreshTokenHeader.equals(refreshTokenFilter.get().getAccessToken())){
             throw new AppException(ErrorCode.TOKEN_NOT_OWNED);
         }
 
@@ -188,12 +185,11 @@ public class AuthServiceImpl implements AuthService {
         extraClaims.put("userId", optionalUser.get().getId());
         var jwt = jwtProvider.generateToken(extraClaims, optionalUser.get());
         String refreshTokenNewString = UUID.randomUUID().toString();
-        if(checkRefreshTokenDuplicate(refreshTokenNewString) == true){
-            refreshTokenNewString = UUID.randomUUID().toString();
-        }
         // Lấy thời gian hiện tại
         LocalDateTime expiresTime = now.plusMinutes(5);
         String stringFormatedDateToken = expiresTime.format(formatter);
+
+
         RefreshToken refreshTokenUpdate = refreshTokenFilter.get();
         refreshTokenUpdate.setAccessToken(jwt);
         refreshTokenUpdate.setAccessExpiryTime(jwtProvider.extractExpirationDate(jwt));
@@ -206,10 +202,6 @@ public class AuthServiceImpl implements AuthService {
                 .accessToken(jwt)
                 .refreshToken(refreshTokenNewString)
                 .build();
-    }
-    private boolean checkRefreshTokenDuplicate(String refreshToken) {
-        Optional<RefreshToken> refreshTokenFilter = refreshTokenRepository.findRecordByReToken(refreshToken);
-        return refreshTokenFilter.isPresent() ? true :false;
     }
 
 
