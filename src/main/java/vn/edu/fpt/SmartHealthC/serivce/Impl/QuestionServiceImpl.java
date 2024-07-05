@@ -203,6 +203,7 @@ public class QuestionServiceImpl implements QuestionService {
         return responseDTOList;
     }
 
+
     @Override
     public List<QuestionResponseDTO> getQuestionsByType(TypeUserQuestion typeUserQuestion) {
         List<Question> questionList = getAllQuestions();

@@ -92,6 +92,7 @@ public class MedicalAppointmentServiceImpl implements MedicalAppointmentService 
 
     }
 
+
     @Override
     public ResponsePaging<List<MedicalAppointmentResponseDTO>> getAllMedicalAppointments(Integer pageNo, String search) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
